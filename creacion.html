@@ -1,39 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
     <title>Creación de Productos</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        button {
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+        .input-field input {
+            border: 2px solid gray;
+            border-radius: 5px;
+            padding: 5px;
+            width: 100%;
+        }
+    </style>
 </head>
-<body>
-    <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+<body class="bg-gray-100">
+    <nav class="flex items-center justify-center flex-wrap bg-blue-500 p-6">
         <div class="flex items-center flex-shrink-0 text-white mr-6">
             <span class="font-semibold text-xl tracking-tight">Gestión de Inventario</span>
         </div>
         <div class="block lg:hidden">
-            <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-                <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-            </button>
         </div>
         <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
             <div class="text-sm lg:flex-grow">
-                <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                <a href="creacion.html" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-300 mr-4 ">
                     Crear Producto
                 </a>
-                <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+                <a href="inv.html" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-300">
                     Ver Inventario
                 </a>
             </div>
         </div>
     </nav>
+    <div id="alert" class="fixed top-0 left-0 w-full h-full flex items-center justify-center" style="display: none; background-color: rgba(0,0,0,0.5);">
+        <div class="bg-white p-8 rounded shadow-lg">
+            <h2 class="text-2xl mb-4">¡Éxito!</h2>
+            <p class="mb-4">Producto añadido con éxito.</p>
+            <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="document.getElementById('alert').style.display='none'">Cerrar</button>
+        </div>
+    </div>
     <div class="container mx-auto">
-        <h1 class="text-4xl">Añadir un nuevo producto</h1>
-        <form id="product-form">
-            <input type="text" id="product-name" placeholder="Nombre del producto" required>
-            <input type="number" id="product-quantity" placeholder="Cantidad" required>
-            <input type="number" id="product-price" placeholder="Precio" required>
-            <input type="text" id="product-distributor" placeholder="Distribuidor" required>
-            <button type="submit">Añadir Producto</button>
+        <h1 class="text-4xl pb-4 pt-8">Añadir un nuevo producto</h1>
+        <form id="product-form" class="bg-white shadow-md rounded px-8 pt-8 pb-8 mb-4" onsubmit="event.preventDefault();">
+
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="product-name">
+                    Nombre del producto
+                </label>
+                <div class="input-field">
+                    <input type="text" id="product-name" placeholder="Nombre del producto" required>
+                </div>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="product-quantity">
+                    Cantidad
+                </label>
+                <div class="input-field">
+                    <input type="number" id="product-quantity" placeholder="Cantidad" required>
+                </div>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="product-price">
+                    Precio
+                </label>
+                <div class="input-field">
+                    <input type="number" id="product-price" placeholder="Precio" required>
+                </div>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="product-distributor">
+                    Distribuidor
+                </label>
+                <div class="input-field">
+                    <input type="text" id="product-distributor" placeholder="Distribuidor" required>
+                </div>
+            </div>
+            <div class="flex items-center justify-between">
+                <button class="bg-blue-500 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                    Añadir Producto
+                </button>
+            </div>
         </form>
+    </div>
+    <div id="Ealert1" class="fixed top-0 left-0 w-full h-full flex items-center justify-center" style="display: none; background-color: rgba(0,0,0,0.5);">
+        <div class="bg-white p-8 rounded shadow-lg">
+            <h2 class="text-2xl mb-4">¡Error!</h2>
+            <p class="mb-4">El formulario debe estar completo con los valores que corresponden.</p>
+            <button class="bg-red-500 text-white px-4 py-2 rounded" onclick="document.getElementById('Ealert1').style.display='none'">Cerrar</button>
+        </div>
     </div>
     <script src="app.js"></script>
 </body>
