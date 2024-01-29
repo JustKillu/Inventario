@@ -1,34 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Inventario de Productos</title>
+    <meta charset="UTF-8">
+    <title>Visualización de Productos</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        button:hover {
+            transform: scale(1.05);
+        }
+        .product-div {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+    </style>
 </head>
-<body>
-    <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+<body class="bg-gray-100">
+    <nav class="flex items-center justify-center flex-wrap bg-blue-500 p-6">
         <div class="flex items-center flex-shrink-0 text-white mr-6">
             <span class="font-semibold text-xl tracking-tight">Gestión de Inventario</span>
         </div>
-        <div class="block lg:hidden">
-            <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-                <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-            </button>
-        </div>
         <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
             <div class="text-sm lg:flex-grow">
-                <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                <a href="creacion.html" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-300 mr-4">
                     Crear Producto
                 </a>
-                <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+                <a href="inv.html" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-300">
                     Ver Inventario
                 </a>
             </div>
         </div>
     </nav>
-    <div class="container mx-auto">
-        <h1 class="text-4xl">Inventario de Productos</h1>
-        <div id="product-list"></div>
+    <div id="edit-form" class="flex items-center justify-center bg-gray-100" style="display: none;">
+        <div class="p-8 bg-white rounded shadow-md w-64 mx-auto mt-4">
+            <input id="edit-name" name="edit-name" type="text" placeholder="Nombre del producto" class="w-full px-3 py-2 mb-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+            <input id="edit-quantity" name="edit-quantity" type="number" placeholder="Cantidad" class="w-full px-3 py-2 mb-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+            <input id="edit-price" name="edit-price" type="number" placeholder="Precio" class="w-full px-3 py-2 mb-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+            <input id="edit-distributor" name="edit-distributor" type="text" placeholder="Distribuidor" class="w-full px-3 py-2 mb-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+            <button onclick="saveEdit()" class="w-full px-3 py-2 mb-3 text-white bg-blue-600 rounded-md hover:bg-blue-700">Guardar</button>
+            <button onclick="cancelEdit()" class="w-full px-3 py-2 text-white bg-red-600 rounded-md hover:bg-red-700">Cancelar</button>
+        </div>
     </div>
-    <script src="app.js"></script>
+    
+    
+    <div class="container mx-auto">
+        <h1 class="text-4xl pb-4">Visualizar Producto</h1>
+        <h1><span class="font-bold">Filtro</span>
+            
+            <input class="mb-3 rounded" id="search" type="text" placeholder="Buscar producto" oninput="filterProducts()">
+        </h1>
+        <div id="product-card" class="bg-white shadow-md rounded px-8 pt-8 pb-8 mb-4">
+            <!-- Productos -->
+        </div>
+    </div>
+    <script src="funciones.js"></script>
 </body>
 </html>
