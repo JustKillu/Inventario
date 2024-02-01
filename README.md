@@ -26,10 +26,3 @@ Cuando usas el CDN, el script monitoriza los cambios que haces en el HTML, detec
 
 Cuando instalas Tailwind CSS localmente, Tailwind "escanea" el código de tu sitio web y crea un archivo CSS compilado que solo contiene los estilos para las clases que estás usando en tu sitio web. Esto resulta en un archivo CSS más pequeño y optimizado, lo que puede mejorar el rendimiento de tu sitio web.
 
-## Próximos pasos
-
-El proyecto está en constante desarrollo con mejoras y nuevas características en el horizonte. Manténgase atento a las actualizaciones.
-
-## Contribución
-
-Las contribuciones son siempre bienvenidas. Por favor, consulte las directrices de contribución antes de hacer una solicitud de extracción.
